@@ -1,7 +1,7 @@
 import re
 import sys
 import json
-import requests
+import requests # Linea 1
 from typing import Any, Dict, AnyStr
 from requests.exceptions import HTTPError
 
@@ -35,16 +35,16 @@ def requestToApi(urlAPI: AnyStr) -> Dict:
     """
     jsonResponse = None
     try:
-        response = requests.get(urlAPI)
+        response = requests.get(urlAPI) # Linea 2
         response.raise_for_status()
-        jsonResponse = response.json()
+        jsonResponse = response.json() # Linea 3
 
     except HTTPError as err:
         print(f'HTTP error: {err}')
     except Exception as err:
         print(f'Otro error: {err}')
 
-    return jsonResponse
+    return jsonResponse # Linea 4
 
 
 if __name__ == '__main__':
